@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import './Style/SearchBox.css'
 
 const SearchBox = ({ history }) => {
   const [keyword, setKeyword] = useState('')
@@ -14,18 +14,20 @@ const SearchBox = ({ history }) => {
   }
 
   return (
-    <Form onSubmit={submitHandler} inline>
-      <Form.Control
+    <form className='searchBox' onSubmit={submitHandler} inline>
+      <button type='submit' className='searchButton'>
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.97917 7.91667H8.41958L8.22125 7.72542C8.91542 6.91792 9.33333 5.86958 9.33333 4.72917C9.33333 2.18625 7.27208 0.125 4.72917 0.125C2.18625 0.125 0.125 2.18625 0.125 4.72917C0.125 7.27208 2.18625 9.33333 4.72917 9.33333C5.86958 9.33333 6.91792 8.91542 7.72542 8.22125L7.91667 8.41958V8.97917L11.4583 12.5138L12.5138 11.4583L8.97917 7.91667ZM4.72917 7.91667C2.96542 7.91667 1.54167 6.49292 1.54167 4.72917C1.54167 2.96542 2.96542 1.54167 4.72917 1.54167C6.49292 1.54167 7.91667 2.96542 7.91667 4.72917C7.91667 6.49292 6.49292 7.91667 4.72917 7.91667Z" fill="#A6A6A6" />
+        </svg>
+      </button>
+      <input
+        className='searchInput'
         type='text'
         name='q'
         onChange={(e) => setKeyword(e.target.value)}
         placeholder='Search Products...'
-        className='mr-sm-2 ml-sm-5'
-      ></Form.Control>
-      <Button type='submit' variant='outline-success' className='p-2'>
-        Search
-      </Button>
-    </Form>
+      ></input>
+    </form>
   )
 }
 

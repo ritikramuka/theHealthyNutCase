@@ -1,0 +1,23 @@
+.searchBox {
+  margin-left: auto;
+  background: #f4f4f4;
+  box-shadow: 0px 4px 4px #cccbcb;
+}
+
+.searchButton {
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-size: 15px;
+}
+
+.searchInput {
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  width: 258px;
+}

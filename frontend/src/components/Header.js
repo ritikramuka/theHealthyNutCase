@@ -34,7 +34,7 @@ const Header = () => {
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav className='ml-auto'>
               {userInfo ? (
-                <NavDropdown title={<span className='navLinks'>{userInfo.name}</span>} style={{'margin-right': '0px'}} id='username'>
+                <NavDropdown title={<span className='navLinks'>{userInfo.name}</span>} style={{ 'margin-right': '0px' }} id='username'>
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -51,10 +51,10 @@ const Header = () => {
               )}
               <LinkContainer to='/cart'>
                 <Nav.Link className='navLinks'>
+                  My Cart
                   <svg className='cart' width="17" height="17" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.32204 4.87499L6.94954 1.32166C6.84663 1.17 6.67329 1.09416 6.49996 1.09416C6.32663 1.09416 6.15329 1.17 6.05038 1.32708L3.67788 4.87499H1.08329C0.785376 4.87499 0.541626 5.11874 0.541626 5.41666C0.541626 5.46541 0.547043 5.51416 0.563293 5.56291L1.93913 10.5842C2.06371 11.0392 2.48079 11.375 2.97913 11.375H10.0208C10.5191 11.375 10.9362 11.0392 11.0662 10.5842L12.442 5.56291L12.4583 5.41666C12.4583 5.11874 12.2145 4.87499 11.9166 4.87499H9.32204ZM4.87496 4.87499L6.49996 2.49166L8.12496 4.87499H4.87496ZM6.49996 9.20833C5.90413 9.20833 5.41663 8.72083 5.41663 8.12499C5.41663 7.52916 5.90413 7.04166 6.49996 7.04166C7.09579 7.04166 7.58329 7.52916 7.58329 8.12499C7.58329 8.72083 7.09579 9.20833 6.49996 9.20833Z" fill="black" />
                   </svg>
-                  My Cart
                 </Nav.Link>
               </LinkContainer>
               {userInfo && userInfo.isAdmin && (
