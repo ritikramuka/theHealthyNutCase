@@ -1,0 +1,20 @@
+.productName {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 33px;
+  line-height: 54px;
+}
+
+.productImg {
+  width: 100%;
+  height: 80%;
+}
+
+.reviewsBtn {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 31px;
+  color: black;
+  padding: 0.50rem 1.5rem;
+}

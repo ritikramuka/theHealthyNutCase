@@ -11,6 +11,7 @@ import {
   createProductReview,
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import './Style/ProductScreen.css'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -70,13 +71,13 @@ const ProductScreen = ({ history, match }) => {
         <>
           <Meta title={product.name} />
           <Row>
-            <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+            <Col md={6} className='pr-0'>
+              <Image className='productImg' src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
-              <ListGroup variant='flush'>
+            <Col md={6} className='productIntro pl-0'>
+              <ListGroup>
                 <ListGroup.Item>
-                  <h3>{product.name}</h3>
+                  <div className='productName'>{product.name}</div>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Rating
@@ -85,14 +86,23 @@ const ProductScreen = ({ history, match }) => {
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+              </ListGroup>
+            </Col>
+          </Row>
+          <div className='productName'>PRODUCT DESCRIPTION</div>
+          <Row>
+            <Col md={9}>
+              <ListGroup>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
               <Card>
                 <ListGroup variant='flush'>
+                  <Image className='productImg' src={product.image} alt={product.name} fluid />
+
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
@@ -150,7 +160,7 @@ const ProductScreen = ({ history, match }) => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <div className='productName'>PRODUCT DETAILS</div>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.map((review) => (
@@ -199,6 +209,7 @@ const ProductScreen = ({ history, match }) => {
                         ></Form.Control>
                       </Form.Group>
                       <Button
+                        className='reviewsBtn'
                         disabled={loadingProductReview}
                         type='submit'
                         variant='primary'
