@@ -171,6 +171,9 @@ const ProductScreen = ({ history, match }) => {
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
+              </ListGroup>
+              <div className='productName'>PRODUCT REVIEW</div>
+              <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h2>Write a Customer Review</h2>
                   {successProductReview && (

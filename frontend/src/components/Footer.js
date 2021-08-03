@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="FooterLinksContainer">
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">Get in touch</h1>
+              <div className="FooterLinkTitle">Get in touch</div>
               <div className="FooterLink">
                 thehealthynutcase@gmail.com
               </div>
@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">Socials</h1>
+              <div className="FooterLinkTitle">Socials</div>
               <a
                 className="FooterLink"
                 href="https://www.instagram.com/ritikramuka.me/"
@@ -68,32 +68,6 @@ const Footer = () => {
                 Made by Ritik Ramuka & Soumya Soni
               </a>
             </small>
-            <div className="SocialIcons">
-              <a
-                className="SocialIconLink"
-                href="https://www.linkedin.com/in/ritik-ramuka-018b6318b/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Linkedin"
-              >
-              </a>
-              <a
-                className="SocialIconLink"
-                href="https://github.com/ritikramuka"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Github"
-              >
-              </a>
-              <a
-                className="SocialIconLink"
-                href="https://www.instagram.com/ritikramuka.me/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-              >
-              </a>
-            </div>
           </div>
         </div>
       </div>
