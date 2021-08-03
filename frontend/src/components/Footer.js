@@ -9,36 +9,22 @@ const Footer = () => {
         <div className="FooterLinksContainer">
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">About Us</h1>
-              <a className="FooterLink" href="/main">
-                How it works
-              </a>
-              <a className="FooterLink" href="/main">
-                Testimonials
-              </a>
-            </div>
-            <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">Contact Us</h1>
-              <a className="FooterLink" href="/main">
-                Contact
-              </a>
-              <a className="FooterLink" href="/main">
-                Suport
-              </a>
+              <h1 className="FooterLinkTitle">Get in touch</h1>
+              <div className="FooterLink">
+                thehealthynutcase@gmail.com
+              </div>
+              <div className="FooterLink">
+                +91-9930456789
+              </div>
+              <div className="FooterLink">
+                3rd Floor, Office Number 40, D-Wing, Mandola Industrial Complex, Military Rd,
+                Delhi - 110024, India
+              </div>
             </div>
           </div>
           <div className="FooterLinksWrapper">
             <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">Videos</h1>
-              <a className="FooterLink" href="/main">
-                Submit Video
-              </a>
-              <a className="FooterLink" href="/main">
-                Ambassadors
-              </a>
-            </div>
-            <div className="FooterLinkItems">
-              <h1 className="FooterLinkTitle">Social Media</h1>
+              <h1 className="FooterLinkTitle">Socials</h1>
               <a
                 className="FooterLink"
                 href="https://www.instagram.com/ritikramuka.me/"
@@ -71,9 +57,6 @@ const Footer = () => {
         </div>
         <div className="SocialMedia">
           <div className="SocialMediaWrap">
-            <div className="SocialLogo" to="/main">
-              RikRak
-            </div>
             <small className="WebsiteRights">
               <a
                 className="RikRak"
@@ -82,7 +65,7 @@ const Footer = () => {
                 rel="noreferrer"
                 aria-label="Ritik Ramuka"
               >
-                Made with ❤️ by Ritik Ramuka
+                Made by Ritik Ramuka & Soumya Soni
               </a>
             </small>
             <div className="SocialIcons">
@@ -93,7 +76,6 @@ const Footer = () => {
                 rel="noreferrer"
                 aria-label="Linkedin"
               >
-                {/* <FaLinkedin /> */}
               </a>
               <a
                 className="SocialIconLink"
@@ -102,7 +84,6 @@ const Footer = () => {
                 rel="noreferrer"
                 aria-label="Github"
               >
-                {/* <FaGithub /> */}
               </a>
               <a
                 className="SocialIconLink"
@@ -111,7 +92,6 @@ const Footer = () => {
                 rel="noreferrer"
                 aria-label="Instagram"
               >
-                {/* <FaInstagram /> */}
               </a>
             </div>
           </div>

@@ -1,6 +1,7 @@
 .productCard {
   background: #c4c4c4;
   border-radius: 17px;
+  border: none;
 }
 
 .ratingNum {
