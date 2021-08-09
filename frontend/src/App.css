@@ -1,3 +1,23 @@
 .App {
-  background: #e5e5e5;
+  background: #f8f8f8;
+}
+
+#background {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 6vh;
+}
+
+#content {
+  z-index: 1;
+}
+
+#bg-text {
+  font-family: Playfair Display;
+  font-weight: 400;
+  color: lightgrey;
+  font-size: 65px;
+  letter-spacing: 0.2em;
 }

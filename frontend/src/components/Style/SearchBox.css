@@ -1,23 +1,34 @@
 .searchBox {
   margin-left: auto;
-  background: #f4f4f4;
-  box-shadow: 0px 4px 4px #cccbcb;
+  box-shadow: 0px 4px 4px #CCCBCB;
+  border-radius: 16.5px;
 }
 
 .searchButton {
   white-space: nowrap;
+  background: #262F24;
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: white;
   font-size: 15px;
+  border-radius: 16.5px 0  0 16.5px;
+  color: white;
 }
 
 .searchInput {
   white-space: nowrap;
   outline: none;
+  background: #262F24;
   border: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
+  padding-top: 4px;
+  padding-left: 6px;
   width: 258px;
+  border-radius: 0 16.5px 16.5px 0;
+  color: white;
+}
+
+::placeholder {
+  color: white;
 }
