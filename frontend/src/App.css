@@ -21,3 +21,15 @@
   font-size: 65px;
   letter-spacing: 0.2em;
 }
+@media screen and (max-width: 820px) {
+  #bg-text {
+    padding-top: 3vh;
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #bg-text {
+    padding-top: 6vh;
+    font-size: 20px;
+  }
+}

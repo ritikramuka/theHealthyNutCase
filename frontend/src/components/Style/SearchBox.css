@@ -2,11 +2,26 @@
   margin-left: auto;
   box-shadow: 0px 4px 4px #CCCBCB;
   border-radius: 16.5px;
+  width: 30%;
+  background: #262F24;
+}
+@media screen and (max-width: 991px) {
+  .searchBox {
+    width: 40%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .searchBox {
+    width: 65%;
+  }
 }
 
 .searchButton {
   white-space: nowrap;
-  background: #262F24;
+  background: none;
   outline: none;
   border: none;
   cursor: pointer;
@@ -18,17 +33,16 @@
 .searchInput {
   white-space: nowrap;
   outline: none;
-  background: #262F24;
+  background: none;
   border: none;
   cursor: pointer;
   font-size: 13px;
   padding-top: 4px;
   padding-left: 6px;
-  width: 258px;
   border-radius: 0 16.5px 16.5px 0;
   color: white;
 }
 
 ::placeholder {
-  color: white;
+  color: rgb(218, 218, 218);
 }
