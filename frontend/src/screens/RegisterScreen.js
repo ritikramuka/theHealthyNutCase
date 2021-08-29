@@ -40,18 +40,19 @@ const RegisterScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <div className='loginScreen'>
-        <div>Sign Up</div>
+        <div className='loginHead'>Sign Up</div>
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-          <Form.Group controlId='name'>
+          <Form.Group controlId='name' className='loginInputFrom'>
             <Form.Label>Name</Form.Label>
             <Form.Control
               type='name'
               placeholder='Enter name'
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
 
@@ -62,6 +63,7 @@ const RegisterScreen = ({ location, history }) => {
               placeholder='Enter email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
 
@@ -72,6 +74,7 @@ const RegisterScreen = ({ location, history }) => {
               placeholder='Enter password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
 
@@ -82,6 +85,7 @@ const RegisterScreen = ({ location, history }) => {
               placeholder='Confirm password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
 
@@ -92,10 +96,10 @@ const RegisterScreen = ({ location, history }) => {
           </div>
         </Form>
 
-        <Row className='py-3 text-center'>
+        <Row className='py-3 text-center fs8'>
           <Col>
             Have an Account?{' '}
-            <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+            <Link className='cRed' to={redirect ? `/login?redirect=${redirect}` : '/login'}>
               Login
             </Link>
           </Col>

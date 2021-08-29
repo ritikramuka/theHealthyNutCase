@@ -33,17 +33,18 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <div className='loginScreen'>
-        <div>Login</div>
+        <div className='loginHead'>Login</div>
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-          <Form.Group controlId='email'>
+          <Form.Group controlId='email' className='loginInputFrom'>
             <Form.Label>E-mail address</Form.Label>
             <Form.Control
               type='email'
               placeholder='Enter email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
 
@@ -54,6 +55,7 @@ const LoginScreen = ({ location, history }) => {
               placeholder='Enter password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className='loginInput'
             ></Form.Control>
           </Form.Group>
           <div className='text-center'>
@@ -63,10 +65,10 @@ const LoginScreen = ({ location, history }) => {
           </div>
         </Form>
 
-        <Row className='py-3 text-center'>
+        <Row className='py-3 text-center fs8'>
           <Col>
             New Customer?{' '}
-            <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+            <Link className='cRed' to={redirect ? `/register?redirect=${redirect}` : '/register'}>
               Register
             </Link>
           </Col>

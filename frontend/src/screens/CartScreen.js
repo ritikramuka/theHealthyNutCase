@@ -46,35 +46,35 @@ const CartScreen = ({ match, location, history }) => {
                     <Col md={4}>
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
-                    <Col md={2}>
+                    <Col md={8}>
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
-                    </Col>
-                    <Col md={2}>Rs {item.price}</Col>
-                    <Col md={2}>
-                      <Form.Control
-                        as='select'
-                        value={item.qty}
-                        onChange={(e) =>
-                          dispatch(
-                            addToCart(item.product, Number(e.target.value))
-                          )
-                        }
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Control>
-                    </Col>
-                    <Col md={1}>
-                      <Button
-                        type='button'
-                        variant='light'
-                        onClick={() => removeFromCartHandler(item.product)}
-                      >
-                        <i className='fas fa-trash'></i>
-                      </Button>
+                      <div>Rs {item.price}</div>
+                      <div>
+                        <Form.Control
+                          as='select'
+                          value={item.qty}
+                          onChange={(e) =>
+                            dispatch(
+                              addToCart(item.product, Number(e.target.value))
+                            )
+                          }
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </div>
+                      <div>
+                        <Button
+                          type='button'
+                          variant='light'
+                          onClick={() => removeFromCartHandler(item.product)}npm run debv
+                        >
+                          <i className='fas fa-trash'></i>
+                        </Button>
+                      </div>
                     </Col>
                   </Row>
                 </ListGroup.Item>

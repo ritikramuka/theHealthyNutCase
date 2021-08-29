@@ -63,7 +63,8 @@
   font-size: 14px;
 }
 .FooterLink:hover {
-  color: #01bf71;
+  color: #fff;
+  text-decoration: none;
   transition: 0.3s ease-out;
 }
 
@@ -84,21 +85,6 @@
   .SocialMediaWrap {
     flex-direction: column;
   }
-}
-
-.SocialLogo {
-  color: #fff;
-  justify-self: start;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-.SocialLogo:hover {
-  color: #01bf71;
 }
 
 .WebsiteRights {

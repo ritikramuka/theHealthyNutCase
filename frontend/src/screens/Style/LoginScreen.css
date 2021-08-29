@@ -6,14 +6,55 @@
   margin-top: 20px;
 }
 
+.loginHead {
+  color: black;
+  font-size: 1.6rem;
+  margin-top: 5px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.loginInputFrom {
+  margin-top: 0.82rem;
+}
+
+.loginInput {
+  background: #f4f4f4;
+  border: 1px solid #827878;
+  border-radius: 16.5px;
+  box-shadow: 0px 4px 4px rgba(204, 203, 203, 0.61);
+}
+
 .login-btn {
+  margin-top: 0.42rem;
   padding: 0.42rem 2.4rem;
   color: black;
   text-transform: none;
-  font-size: 18px;
+  font-size: 1rem;
   background: #a7fb53;
   font-family: Poppins;
   font-weight: 400;
   box-shadow: 0px 4px 4px #a6a5a5;
   border-radius: 30px;
+}
+
+.cRed {
+  color: red;
+}
+.cRed:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.fs8 {
+  font-size: 0.8rem;
+}
+
+.loginInput:-webkit-autofill,
+.loginInput:-webkit-autofill:hover,
+.loginInput:-webkit-autofill:focus,
+.loginInput:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #55595c !important;
 }
