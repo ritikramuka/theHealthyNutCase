@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { saveShippingAddress } from '../actions/cartActions'
+import './Style/ShippingScreen.css'
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
@@ -25,8 +26,12 @@ const ShippingScreen = ({ history }) => {
   return (
     <>
       <CheckoutSteps step1 step2 />
+      <Row className='justify-content-md-center'>
+        <Col xs={12} md={6}>
+          <div>Add Shippping Address</div>
+        </Col>
+      </Row>
       <FormContainer>
-        <h1>Shipping</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='address'>
             <Form.Label>Address</Form.Label>
@@ -36,6 +41,7 @@ const ShippingScreen = ({ history }) => {
               value={address}
               required
               onChange={(e) => setAddress(e.target.value)}
+              className='shippingInput'
             ></Form.Control>
           </Form.Group>
 
@@ -47,6 +53,7 @@ const ShippingScreen = ({ history }) => {
               value={city}
               required
               onChange={(e) => setCity(e.target.value)}
+              className='shippingInput'
             ></Form.Control>
           </Form.Group>
 
@@ -58,6 +65,7 @@ const ShippingScreen = ({ history }) => {
               value={postalCode}
               required
               onChange={(e) => setPostalCode(e.target.value)}
+              className='shippingInput'
             ></Form.Control>
           </Form.Group>
 
@@ -69,12 +77,15 @@ const ShippingScreen = ({ history }) => {
               value={country}
               required
               onChange={(e) => setCountry(e.target.value)}
+              className='shippingInput'
             ></Form.Control>
           </Form.Group>
 
-          <Button type='submit' variant='primary'>
-            Continue
-          </Button>
+          <div class="text-center">
+            <Button type='submit' className='shipping-btn'>
+              Continue
+            </Button>
+          </div>
         </Form>
       </FormContainer>
     </>

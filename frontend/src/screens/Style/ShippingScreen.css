@@ -1,0 +1,27 @@
+.shippingInput {
+  background: #f4f4f4;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+
+.shippingInput:-webkit-autofill,
+.shippingInput:-webkit-autofill:hover,
+.shippingInput:-webkit-autofill:focus,
+.shippingInput:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+.shipping-btn {
+  background: #292929;
+  border-radius: 15px;
+  width: 38%;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  padding: 0.65rem ​1.5rem;
+  text-transform: none;
+  color: #ffffff;
+}

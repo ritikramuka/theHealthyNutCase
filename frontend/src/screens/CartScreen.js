@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import './Style/CartScreen.css'
+import Rating from '../components/Rating'
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id
@@ -31,7 +33,7 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
-      <h1>Shopping Cart</h1>
+      <div className='cartHeader'>Shopping Cart</div>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -48,7 +50,11 @@ const CartScreen = ({ match, location, history }) => {
                     </Col>
                     <Col md={8}>
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
-                      <div>Rs {item.price}</div>
+                      <div>₹ {item.price}</div>
+                      <Rating
+                        value={item.rating}
+                        text={`${item.numReviews} reviews`}
+                      />
                       <div>
                         <Form.Control
                           as='select'
@@ -70,7 +76,7 @@ const CartScreen = ({ match, location, history }) => {
                         <Button
                           type='button'
                           variant='light'
-                          onClick={() => removeFromCartHandler(item.product)}npm run debv
+                          onClick={() => removeFromCartHandler(item.product)} npm run debv
                         >
                           <i className='fas fa-trash'></i>
                         </Button>
@@ -86,20 +92,20 @@ const CartScreen = ({ match, location, history }) => {
           <Card>
             <ListGroup>
               <ListGroup.Item>
-                <div>Price Details</div>
-                <div>
-                  Total Number of items : {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                <div className='cartSummaryHeader'>Price Details</div>
+                <div className='cartSummaryItems'>
+                  Total Number of Items : <span className='bold'>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</span>
                 </div>
-                <div>
-                  Total Amount : Rs {cartItems
+                <div className='cartSummaryItems'>
+                  Total Amount : <span className='bold'>₹ {cartItems
                     .reduce((acc, item) => acc + item.qty * item.price, 0)
-                    .toFixed(2)}
+                    .toFixed(2)}</span>
                 </div>
               </ListGroup.Item>
             </ListGroup>
             <Button
               type='button'
-              className='btn-block'
+              className='btn-block cart-btn'
               disabled={cartItems.length === 0}
               onClick={checkoutHandler}
             >

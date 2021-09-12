@@ -1,0 +1,39 @@
+.cartHeader {
+  font-family: Poppins;
+  font-weight: 300;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.cartSummaryHeader {
+  color: hsl(0, 0%, 0%);
+  font-size: 1.6rem;
+  font-family: Poppins;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.cartSummaryItems {
+  color: #000000;
+  font-family: Poppins;
+  font-weight: 300;  
+  margin: 20px 0px;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+.cart-btn {
+  color: #000000;
+  background: #a7fb53;
+  box-shadow: 0px 4px 4px #a6a5a5;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 1.1rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-transform: none;
+}
+

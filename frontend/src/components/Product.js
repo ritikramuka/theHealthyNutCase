@@ -19,7 +19,7 @@ const Product = ({ product }) => {
 
       <Row>
         <Col xs={4} className='pr-0'>
-          <Card.Text as='div'>${product.price}</Card.Text>
+          <Card.Text as='div'>₹{product.price}</Card.Text>
         </Col>
         <Col xs={8}>
           <Card.Text as='small'>
