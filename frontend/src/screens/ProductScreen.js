@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Card, Button, Form, Container } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -71,22 +71,22 @@ const ProductScreen = ({ history, match }) => {
         <>
           <Meta title={product.name} />
           <Row>
-            <Col md={6} className='pr-0'>
+            <Col md={6}>
               <Image className='productImg' src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={6} className='productIntro pl-0'>
-              <ListGroup>
-                <ListGroup.Item>
+            <Col md={6} className='productIntro'>
+              <ListGroup variant='flush'>
+                <ListGroup.Item className='main-bgColor border-n'>
                   <div className='productName'>{product.name}</div>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='main-bgColor border-n prodItr-rating'>
                   <Rating
                     value={product.rating}
-                    text={`${product.numReviews} reviews`}
+                    text={`(${product.rating}/5) | ${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ₹{product.price}</ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className='main-bgColor border-n'>MRP: ₹{product.price}</ListGroup.Item>
+                <ListGroup.Item className='main-bgColor border-n'>
                   <Row>
                     <Col>Status:</Col>
                     <Col>
@@ -96,7 +96,7 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup.Item>
 
                 {product.countInStock > 0 && (
-                  <ListGroup.Item>
+                  <ListGroup.Item className='main-bgColor border-n'>
                     <Row>
                       <Col>Qty</Col>
                       <Col>
@@ -104,6 +104,7 @@ const ProductScreen = ({ history, match }) => {
                           as='select'
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
+                          className='main-bgColor'
                         >
                           {[...Array(product.countInStock).keys()].map(
                             (x) => (
@@ -120,7 +121,7 @@ const ProductScreen = ({ history, match }) => {
 
                 <Button
                   onClick={addToCartHandler}
-                  className='cart-btn'
+                  className='prod-btn'
                   type='button'
                   disabled={product.countInStock === 0}
                 >
@@ -132,18 +133,16 @@ const ProductScreen = ({ history, match }) => {
           <div className='productName'>PRODUCT DESCRIPTION</div>
           <Row>
             <Col md={9}>
-              <ListGroup>
-                <ListGroup.Item>
-                  {product.description}
-                </ListGroup.Item>
-              </ListGroup>
+              <div className='main-bgColor border-n'>
+                {product.description}
+              </div>
             </Col>
             <Col md={3}>
               <Card>
-                <ListGroup variant='flush'>
+                <ListGroup variant='flush border-n'>
                   <Image className='productImg' src={product.image} alt={product.name} fluid />
 
-                  <ListGroup.Item>
+                  <ListGroup.Item className='main-bgColor border-n'>
                     <Row>
                       <Col>Price:</Col>
                       <Col>
@@ -152,21 +151,22 @@ const ProductScreen = ({ history, match }) => {
                     </Row>
                   </ListGroup.Item>
 
-                  <ListGroup.Item>
+                  {/* <ListGroup.Item className='main-bgColor border-n'>
                     <Row>
                       <Col>Status:</Col>
                       <Col>
                         {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
                       </Col>
                     </Row>
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
 
                   {product.countInStock > 0 && (
-                    <ListGroup.Item>
+                    <ListGroup.Item className='main-bgColor border-n'>
                       <Row>
                         <Col>Qty</Col>
                         <Col>
                           <Form.Control
+                            className='main-bgColor border-n'
                             as='select'
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
