@@ -147,46 +147,39 @@ export const payOrder = (orderId, paymentResult) => async (
   }
 }
 
-export const deliverOrder = (order) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: ORDER_DELIVER_REQUEST,
-    })
+export const deliverOrder = (orderId) => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: ORDER_DELIVER_REQUEST,
+      });
 
-    const {
-      userLogin: { userInfo },
-    } = getState()
+      const {
+        userLogin: { userInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      await axios.put(`/api/orders/${orderId}/deliver`, {}, config);
+
+      dispatch({
+        type: ORDER_DELIVER_SUCCESS,
+      });
+    } catch (error) {
+      dispatch({
+        type: ORDER_DELIVER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
     }
-
-    const { data } = await axios.put(
-      `/api/orders/${order._id}/deliver`,
-      {},
-      config
-    )
-
-    dispatch({
-      type: ORDER_DELIVER_SUCCESS,
-      payload: data,
-    })
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message
-    if (message === 'Not authorized, token failed') {
-      dispatch(logout())
-    }
-    dispatch({
-      type: ORDER_DELIVER_FAIL,
-      payload: message,
-    })
-  }
-}
+  };
+};
 
 export const listMyOrders = () => async (dispatch, getState) => {
   try {

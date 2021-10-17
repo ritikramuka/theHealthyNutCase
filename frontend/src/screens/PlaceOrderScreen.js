@@ -68,9 +68,9 @@ const PlaceOrderScreen = ({ history }) => {
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <div className='placeOrder-subheader'>Shipping</div>
               <p>
-                <strong>Address:</strong>
+                Address:
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
                 {cart.shippingAddress.postalCode},{' '}
                 {cart.shippingAddress.country}
@@ -78,13 +78,13 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong>Method: </strong>
+              <div className='placeOrder-subheader'>Payment Method</div>
+              Method:
               {cart.paymentMethod}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <div className='placeOrder-subheader'>Order Items</div>
               {cart.cartItems.length === 0 ? (
                 <Message>Your cart is empty</Message>
               ) : (
@@ -106,7 +106,7 @@ const PlaceOrderScreen = ({ history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
+                          {item.qty} x &#8377;{item.price} = &#8377;{item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -118,37 +118,35 @@ const PlaceOrderScreen = ({ history }) => {
         </Col>
         <Col md={4}>
           <Card>
-            <ListGroup variant='flush'>
+            <ListGroup variant='flush'  >
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <div className='placeOrder-subheader'>Order Summary</div>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>₹{cart.itemsPrice}</Col>
+                  <Col>&#8377;{cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>₹{cart.shippingPrice}</Col>
+                  <Col>&#8377;{cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>₹{cart.taxPrice}</Col>
+                  <Col>&#8377;{cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>₹{cart.totalPrice}</Col>
+                  <Col>&#8377;{cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
-                {error && <Message variant='danger'>{error}</Message>}
-              </ListGroup.Item>
+              {error && <ListGroup.Item><Message variant='danger'>{error}</Message></ListGroup.Item>}
               <Button
                 type='button'
                 className='btn-block placeOrder-btn'

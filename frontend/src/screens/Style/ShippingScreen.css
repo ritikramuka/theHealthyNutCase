@@ -25,3 +25,8 @@
   text-transform: none;
   color: #ffffff;
 }
+
+.shipping-header {
+  font-size: 1.2rem;
+  text-align: center;
+}

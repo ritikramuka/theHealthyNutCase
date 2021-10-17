@@ -11,7 +11,7 @@ const Product = ({ product }) => {
         <Card.Img src={product.image} variant='top' />
       </Link>
 
-      <Link to={`/product/${product._id}`}>
+      <Link className='linksHover' to={`/product/${product._id}`}>
         <Card.Title as='div' className='mt-3'>
           <strong>{product.name}</strong>
         </Card.Title>
@@ -19,7 +19,7 @@ const Product = ({ product }) => {
 
       <Row>
         <Col xs={4} className='pr-0'>
-          <Card.Text as='div'>₹{product.price}</Card.Text>
+          <Card.Text as='div'>&#8377;{product.price}</Card.Text>
         </Col>
         <Col xs={8}>
           <Card.Text as='small'>

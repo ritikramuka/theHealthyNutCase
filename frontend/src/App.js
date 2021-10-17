@@ -18,6 +18,10 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import ReturnRefundPolicyScreen from './screens/FooterScreens/ReturnRefundPolicyScreen'
+import GetInTouch from './screens/FooterScreens/GetInTouch'
+import TermsAndConditions from './screens/FooterScreens/TermsAndConditions'
+import PrivacyScreen from './screens/FooterScreens/PrivacyScreen'
 import './App.css'
 
 const App = () => {
@@ -63,6 +67,11 @@ const App = () => {
                 exact
               />
               <Route path='/' component={HomeScreen} exact />
+
+              <Route path='/return-refund' component={ReturnRefundPolicyScreen} />
+              <Route path='/get-in-touch' component={GetInTouch} />
+              <Route path='/terms-conditions' component={TermsAndConditions} />
+              <Route path='/privacy' component={PrivacyScreen} />
             </Container>
           </main>
           <Footer />

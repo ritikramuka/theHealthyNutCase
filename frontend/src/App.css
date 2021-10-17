@@ -1,5 +1,5 @@
 .App {
-  background: #E5E5E5;
+  background: white;
   font-family: Poppins;
   font-weight: 300;
   color: black;
@@ -37,6 +37,6 @@
   }
 }
 
-.main-bgColor {
-  background: #E5E5E5;
+.linksHover:hover {
+  text-decoration: none;
 }
