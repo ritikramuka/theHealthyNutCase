@@ -28,7 +28,7 @@ const ShippingScreen = ({ history }) => {
       <CheckoutSteps step1 step2 />
       <Row className='justify-content-md-center'>
         <Col xs={12} md={6}>
-          <div>Add Shippping Address</div>
+          <div className='shipping-header'>Add Shippping Address</div>
         </Col>
       </Row>
       <FormContainer>

@@ -1,5 +1,8 @@
-import asyncHandler from 'express-async-handler'
-import Order from '../models/orderModel.js'
+import crypto from 'crypto';
+import asyncHandler from "express-async-handler";
+import Order from "../models/orderModel.js";
+import Razorpay from "razorpay";
+import ShortUniqueId from "short-unique-id";
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -41,16 +44,13 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @route   GET /api/orders/:id
 // @access  Private
 const getOrderById = asyncHandler(async (req, res) => {
-  const order = await Order.findById(req.params.id).populate(
-    'user',
-    'name email'
-  )
-
-  if (order) {
-    res.json(order)
-  } else {
+  const order = await Order.findById(req.params.id)
+  if (!order) {
     res.status(404)
     throw new Error('Order not found')
+  } else {
+    await order.populate('user', 'name email').execPopulate()
+    res.json(order)
   }
 })
 
@@ -58,26 +58,24 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @route   GET /api/orders/:id/pay
 // @access  Private
 const updateOrderToPaid = asyncHandler(async (req, res) => {
-  const order = await Order.findById(req.params.id)
-
+  const order = await Order.findById(req.params.id);
   if (order) {
-    order.isPaid = true
-    order.paidAt = Date.now()
+    order.isPaid = true;
+    order.paidAt = Date.now();
     order.paymentResult = {
-      id: req.body.id,
       status: req.body.status,
-      update_time: req.body.update_time,
-      email_address: req.body.payer.email_address,
-    }
+      order_id: req.body.razorpayOrderId,
+      payment_id: req.body.razorpayPaymentId,
+    };
 
-    const updatedOrder = await order.save()
+    const updatedOrder = await order.save();
 
-    res.json(updatedOrder)
+    res.json(updatedOrder);
   } else {
-    res.status(404)
-    throw new Error('Order not found')
+    res.status(404);
+    throw new Error("Order not found");
   }
-})
+});
 
 // @desc    Update order to delivered
 // @route   GET /api/orders/:id/deliver
@@ -114,6 +112,66 @@ const getOrders = asyncHandler(async (req, res) => {
   res.json(orders)
 })
 
+// @desc    Update order to paid
+// @route   GET /api/orders/:id/razorOrder
+// @access  Private
+const createRazorOrder = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    const instance = new Razorpay({
+      key_id: process.env.KEY_ID,
+      key_secret: process.env.KEY_SECRET,
+    });
+
+    const uid = new ShortUniqueId();
+
+    const options = {
+      amount: Math.round(order.totalPrice * 100),
+      currency: "INR",
+      receipt: uid(),
+    };
+
+    const orderInstance = await instance.orders.create(options);
+
+    if (!orderInstance) {
+      res.status(500);
+      throw new Error("Something went wrong! Try again.");
+    }
+
+    res.json(orderInstance);
+  } else {
+    res.status(404);
+    throw new Error("Order not Found!");
+  }
+});
+
+// @desc    Order payment successful
+// @route   /api/orders/success
+// @access  Private
+
+const orderSuccess = asyncHandler(async (req, res) => {
+  const {
+    orderCreationId,
+    razorpayPaymentId,
+    razorpayOrderId,
+    razorpaySignature,
+  } = req.body;
+
+  const shasum = crypto.createHmac("sha256", process.env.KEY_SECRET);
+  shasum.update(`${orderCreationId}|${razorpayPaymentId}`);
+  const digest = shasum.digest("hex");
+
+  if (digest !== razorpaySignature) {
+    res.status(400);
+    throw new Error("Transaction is not legit!");
+  }
+  res.json({
+    razorpayOrderId,
+    razorpayPaymentId,
+    status: "Completed",
+  });
+});
+
 export {
   addOrderItems,
   getOrderById,
@@ -121,4 +179,6 @@ export {
   updateOrderToDelivered,
   getMyOrders,
   getOrders,
+  createRazorOrder,
+  orderSuccess,
 }

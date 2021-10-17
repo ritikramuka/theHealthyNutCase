@@ -1,5 +1,5 @@
 .FooterContainer {
-  background: #262F24;
+  background: #262f24;
 }
 
 .FooterWrap {
@@ -10,11 +10,12 @@
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
+  padding-bottom: 0;
 }
 
 .FooterLinksContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 @media screen and (max-width: 820px) {
   .FooterLinksContainer {
@@ -23,7 +24,7 @@
 }
 
 .FooterLinksWrapper {
-  display: flex;
+  flex: 1;
 }
 @media screen and (max-width: 820px) {
   .FooterLinksWrapper {
@@ -37,7 +38,6 @@
   align-items: flex-start;
   margin: 16px;
   text-align: left;
-  width: 50%;
   box-sizing: border-box;
   color: #fff;
 }
@@ -110,4 +110,42 @@
 }
 .SocialIconLink:hover {
   color: #01bf71;
+}
+
+.Payment-icons {
+  -moz-column-count: 12;
+  -moz-column-gap: 3px;
+  -webkit-column-count: 12;
+  -webkit-column-gap: 3px;
+  column-count: 12;
+  column-gap: 3px;
+  list-style-type:none;
+}
+
+.Instagram {
+  color: #fff;
+  margin-right: 3px;
+  margin-left: 0;
+  margin-top: 7px;
+}
+.Instagram:hover {
+  color: #E1306C;
+}
+
+.Facebook {
+  color: #fff;
+  margin-left: 3px;
+  margin-top: 7px;
+}
+.Facebook:hover {
+  color: #3B5998;
+}
+
+.email {
+  text-decoration: none;
+  color: white;
+}
+.email:hover {
+  text-decoration: none;
+  color: white;
 }

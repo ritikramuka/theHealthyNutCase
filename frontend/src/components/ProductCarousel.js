@@ -1,10 +1,28 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Carousel, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader'
 import Message from './Message'
 import { listTopProducts } from '../actions/productActions'
+import flex1 from '../Flex/flex1.jpg'
+import flex2 from '../Flex/flex2.png'
+import flex3 from '../Flex/flex3.jpg'
+import './Style/ProductCarousel.css'
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
+
+const slideImages = [
+  flex1,
+  flex2,
+  flex3
+];
+
+const properties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  prevArrow: <div></div>,
+  nextArrow: <div></div>
+};
 
 const ProductCarousel = () => {
   const dispatch = useDispatch()
@@ -21,20 +39,21 @@ const ProductCarousel = () => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
-    <Carousel pause='hover' className='bg-dark'>
-      {products.map((product) => (
-        <Carousel.Item key={product._id}>
-          <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid />
-            <Carousel.Caption className='carousel-caption'>
-              <h2>
-                {product.name}
-              </h2>
-            </Carousel.Caption>
-          </Link>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+    <>
+      <div>
+        <Slide easing="ease" {...properties}>
+          <div className="each-slide">
+            <div style={{ 'backgroundImage': `url(${slideImages[0]})` }}></div>
+          </div>
+          <div className="each-slide">
+            <div style={{ 'backgroundImage': `url(${slideImages[1]})` }}></div>
+          </div>
+          <div className="each-slide">
+            <div style={{ 'backgroundImage': `url(${slideImages[2]})` }}></div>
+          </div>
+        </Slide>
+      </div>
+    </>
   )
 }
 

@@ -49,14 +49,15 @@ const CartScreen = ({ match, location, history }) => {
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
                     <Col md={8}>
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
-                      <div>₹ {item.price}</div>
+                      <Link className='itemName' to={`/product/${item.product}`}>{item.name}</Link>
+                      <div>&#8377; {item.price}</div>
                       <Rating
                         value={item.rating}
                         text={`${item.numReviews} reviews`}
-                      />
-                      <div>
+                      />  
+                      <div className='qty-del'>
                         <Form.Control
+                          className='ticker'
                           as='select'
                           value={item.qty}
                           onChange={(e) =>
@@ -71,9 +72,8 @@ const CartScreen = ({ match, location, history }) => {
                             </option>
                           ))}
                         </Form.Control>
-                      </div>
-                      <div>
                         <Button
+                          className='del-btn'
                           type='button'
                           variant='light'
                           onClick={() => removeFromCartHandler(item.product)} npm run debv
@@ -97,7 +97,7 @@ const CartScreen = ({ match, location, history }) => {
                   Total Number of Items : <span className='bold'>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</span>
                 </div>
                 <div className='cartSummaryItems'>
-                  Total Amount : <span className='bold'>₹ {cartItems
+                  Total Amount : <span className='bold'>&#8377; {cartItems
                     .reduce((acc, item) => acc + item.qty * item.price, 0)
                     .toFixed(2)}</span>
                 </div>

@@ -76,17 +76,17 @@ const ProductScreen = ({ history, match }) => {
             </Col>
             <Col md={6} className='productIntro'>
               <ListGroup variant='flush'>
-                <ListGroup.Item className='main-bgColor border-n'>
+                <ListGroup.Item className=' border-n'>
                   <div className='productName'>{product.name}</div>
                 </ListGroup.Item>
-                <ListGroup.Item className='main-bgColor border-n prodItr-rating'>
+                <ListGroup.Item className=' border-n prodItr-rating'>
                   <Rating
                     value={product.rating}
                     text={`(${product.rating}/5) | ${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item className='main-bgColor border-n'>MRP: ₹{product.price}</ListGroup.Item>
-                <ListGroup.Item className='main-bgColor border-n'>
+                <ListGroup.Item className=' border-n'>MRP: &#8377;{product.price}</ListGroup.Item>
+                <ListGroup.Item className=' border-n'>
                   <Row>
                     <Col>Status:</Col>
                     <Col>
@@ -96,15 +96,15 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup.Item>
 
                 {product.countInStock > 0 && (
-                  <ListGroup.Item className='main-bgColor border-n'>
+                  <ListGroup.Item className=' border-n'>
                     <Row>
-                      <Col>Qty</Col>
+                      <Col>Qty:</Col>
                       <Col>
                         <Form.Control
+                          className='qty-ticker'
                           as='select'
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
-                          className='main-bgColor'
                         >
                           {[...Array(product.countInStock).keys()].map(
                             (x) => (
@@ -133,7 +133,7 @@ const ProductScreen = ({ history, match }) => {
           <div className='productName'>PRODUCT DESCRIPTION</div>
           <Row>
             <Col md={9}>
-              <div className='main-bgColor border-n'>
+              <div className='border-n'>
                 {product.description}
               </div>
             </Col>
@@ -142,16 +142,16 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup variant='flush border-n'>
                   <Image className='productImg' src={product.image} alt={product.name} fluid />
 
-                  <ListGroup.Item className='main-bgColor border-n'>
+                  <ListGroup.Item className='border-n'>
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>₹{product.price}</strong>
+                        <strong>&#8377;{product.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
 
-                  {/* <ListGroup.Item className='main-bgColor border-n'>
+                  {/* <ListGroup.Item className='border-n'>
                     <Row>
                       <Col>Status:</Col>
                       <Col>
@@ -161,12 +161,12 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item> */}
 
                   {product.countInStock > 0 && (
-                    <ListGroup.Item className='main-bgColor border-n'>
+                    <ListGroup.Item className='border-n'>
                       <Row>
-                        <Col>Qty</Col>
+                        <Col>Qty:</Col>
                         <Col>
                           <Form.Control
-                            className='main-bgColor border-n'
+                            className='border-n qty-ticker2'
                             as='select'
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}

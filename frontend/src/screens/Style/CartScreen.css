@@ -37,3 +37,22 @@
   text-transform: none;
 }
 
+.itemName {
+  font-size: 1rem;
+}
+.itemName:hover {
+  text-decoration: none;
+}
+
+.ticker {
+  width: 20%;
+}
+
+.qty-del {
+  display: flex;
+}
+
+.del-btn {
+  margin-left: 10px;
+  color: #A6A6A6;
+}

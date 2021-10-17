@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import './Style/ProfileScreen.css'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -56,9 +57,8 @@ const ProfileScreen = ({ location, history }) => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <div className='profile-subheader'>User Profile</div>
         {message && <Message variant='danger'>{message}</Message>}
-        {}
         {success && <Message variant='success'>Profile Updated</Message>}
         {loading ? (
           <Loader />
@@ -73,6 +73,7 @@ const ProfileScreen = ({ location, history }) => {
                 placeholder='Enter name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className='loginInput'
               ></Form.Control>
             </Form.Group>
 
@@ -83,6 +84,7 @@ const ProfileScreen = ({ location, history }) => {
                 placeholder='Enter email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className='loginInput'
               ></Form.Control>
             </Form.Group>
 
@@ -93,6 +95,7 @@ const ProfileScreen = ({ location, history }) => {
                 placeholder='Enter password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className='loginInput'
               ></Form.Control>
             </Form.Group>
 
@@ -103,17 +106,18 @@ const ProfileScreen = ({ location, history }) => {
                 placeholder='Confirm password'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                className='loginInput'
               ></Form.Control>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
+            <Button type='submit' variant='primary' className='login-btn'>
               Update
             </Button>
           </Form>
         )}
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <div className='profile-subheader'>My Orders</div>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
@@ -131,7 +135,7 @@ const ProfileScreen = ({ location, history }) => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders.reverse().map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
